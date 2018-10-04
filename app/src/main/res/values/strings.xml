@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ynie-FeelsBook</string>
+    <string name="moodButtonLove">Love</string>
+    <string name="moodButtonJoy">Joy</string>
+    <string name="moodButtonSurprise">Surprise</string>
+    <string name="moodButtonAnger">Anger</string>
+    <string name="moodButtonSadness">Sadness</string>
+    <string name="moodButtonFear">Fear</string>
+    <string name="TopicAskForMood">How to you feel right now?</string>
+    <string name="history">Read my Feelsbook</string>
+    <string name="optionalComment">Optional Comment</string>
+    <string name="MoodSaved">Mood successfully saved!</string>
+    <string name="messageTooLong">Your message has to be under 100 letters</string>
+
+</resources>
