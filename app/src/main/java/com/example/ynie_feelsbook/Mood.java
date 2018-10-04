@@ -7,6 +7,10 @@ public abstract class Mood {
     private String message;
     private String name;
 
+    public Mood(){
+
+    }
+
     public Mood(Date date, String name){
         this.date = date;
         this.name = name;
