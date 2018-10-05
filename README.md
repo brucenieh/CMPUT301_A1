@@ -2,7 +2,7 @@
 
 This program is produced under verbal collaboration with Kean Yap Weng.
 
-UML diagram submission is a pdf file called ynie_feelsbook_UML
+UML diagram submission is a pdf file called ynie_Feelsbook_UML
 
 taking suggestions from answer from stackoverflow to implement multiple button onclicklisteners in MainActivity
     By Pragnesh Ghoda シ
