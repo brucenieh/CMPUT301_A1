@@ -71,9 +71,9 @@ public class MoodDetail extends AppCompatActivity {
                 try{
                     saveMood();
                 }catch (tooLongMessageException e){
-                    Snackbar mySnackbar = Snackbar.make(findViewById(R.id.comment), R.string.messageTooLong, Snackbar.LENGTH_SHORT);
-                    mySnackbar.show();
-                    //snackbar implementation from:https://developer.android.com/training/snackbar/showing
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.comment), R.string.messageTooLong, Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+
                 }
                 deleteMood();
                 saveInFile();

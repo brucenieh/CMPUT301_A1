@@ -130,9 +130,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             updateAllCounter();
 
         }catch (tooLongMessageException e){
-            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.comment), R.string.messageTooLong, Snackbar.LENGTH_SHORT);
-            mySnackbar.show();
-            //snackbar implementation from:https://developer.android.com/training/snackbar/showing
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.comment), R.string.messageTooLong, Snackbar.LENGTH_SHORT);
+            snackbar.show();
+
         }
 
     }
