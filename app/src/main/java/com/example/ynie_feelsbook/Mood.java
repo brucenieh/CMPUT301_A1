@@ -2,10 +2,16 @@ package com.example.ynie_feelsbook;
 
 import java.util.Date;
 
-public abstract class Mood {
+public abstract class Mood implements Comparable<Mood>{
     private Date date;
     private String message;
     private String name;
+
+    @Override
+    public int compareTo(Mood mood) {
+        return -(this.getDate().compareTo(mood.getDate()));
+
+    }
 
     public Mood(){
 
@@ -42,4 +48,11 @@ public abstract class Mood {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String toString(){
+        return this.date.toString() + " | " + this.name;
+    }
+
+
+
 }

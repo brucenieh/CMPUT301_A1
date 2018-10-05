@@ -12,5 +12,7 @@
     <string name="MoodSaved">Mood successfully saved!</string>
     <string name="messageTooLong">Your message has to be under 100 letters</string>
     <string name="total">I have recorded:</string>
+    <string name="saveButton">save</string>
+    <string name="deleteButton">delete</string>
 
 </resources>
