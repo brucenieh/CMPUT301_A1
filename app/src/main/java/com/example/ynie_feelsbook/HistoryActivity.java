@@ -22,7 +22,13 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class HistoryActivity extends AppCompatActivity {
-
+    /**
+     * launched when user pressed "Read my feelsbook" in MainActivity
+     * display a listview with all mood that has been recorded in the file
+     * each item in the list has the format "date|mood|message"
+     * Listview also checks for user clicks, then find the position the user clicked on,
+     * intent to MoodDetail activity to show user the full detail of the mood
+     */
     private static final String FILENAME = "file.sav";
     private ArrayList<Mood> moods = new ArrayList<Mood>();
     private ArrayAdapter<Mood> adapter;
@@ -77,6 +83,9 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private void goToDetail(int position){
+        /**
+         * get the position of the item user clicked on and pass the position to MoodDetail activity
+         */
         //Log.d("check",moods.get(position).toString());
         Intent intent = new Intent(this, MoodDetail.class);
         intent.putExtra("position",position);

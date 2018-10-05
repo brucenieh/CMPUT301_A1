@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,7 +27,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
+    /** shows the first view when users launch the app
+     * Has six buttons corresponding to six emotions that act as save buttons to save the mood into the file specified
+     * Has one edittext for taking user inputs as optional comment for the mood input
+     * Has six counters indicating the number of moods that have been recorded,
+     * the counters update everytime the user add a new mood
+     * has a button at the bottom for switching to HistoryActivity
+     */
     private static final String FILENAME = "file.sav";
     private ArrayList<Mood> moods = new ArrayList<Mood>();
     private EditText bodyText;
@@ -73,9 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-    @Override//taking suggestions from answer from stackoverflow to implement multiple button onclicklisteners
-    // url: https://stackoverflow.com/questions/25905086/multiple-buttons-onclicklistener-android
-    public void onClick(View v){
+    @Override/*
+    taking suggestions from answer from stackoverflow to implement multiple button onclicklisteners
+    url: https://stackoverflow.com/questions/25905086/multiple-buttons-onclicklistener-android
+    */ public void onClick(View v){
+        /** catches button clicks
+         * and save the button's corresponding mood into arraylist
+         */
 
         Mood newMood = null;
         switch(v.getId()){
@@ -128,6 +138,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadFromFile() {
+        /**
+         * load the json file ad put the content into a arraylist
+         */
 
         try {
             FileInputStream fis = openFileInput(FILENAME);
@@ -144,6 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
     private void saveInFile(){
+        /**
+         * save all item in the ArrayList into a json file
+         */
         try {
             FileOutputStream fos = openFileOutput(FILENAME,0);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
@@ -160,7 +176,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public int countMood(Mood moodToMatch){
+    private int countMood(Mood moodToMatch){
+        /**
+         * counts the number of mood that has appeared in the mood array
+         */
         int counter = 0;
 
         for(Mood mood:moods){
@@ -175,7 +194,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return counter;
     }
 
-    public void updateAllCounter(){
+    private void updateAllCounter(){
+        /**
+         * update all mood counters
+         */
         updateTotalCountFear();
         updateTotalCountAnger();
         updateTotalCountJoy();
@@ -184,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updateTotalCountSurprise();
     }
 
-    public void updateTotalCountFear(){
+    private void updateTotalCountFear(){
         int counter = 0;
         counter = countMood(new Fear(new Date()));
         TextView text = (TextView)findViewById(R.id.fearCounter);
@@ -192,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void updateTotalCountAnger(){
+    private void updateTotalCountAnger(){
         int counter = 0;
         counter = countMood(new Anger(new Date()));
         TextView text = (TextView)findViewById(R.id.angerCounter);
@@ -200,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void updateTotalCountJoy(){
+    private void updateTotalCountJoy(){
         int counter = 0;
         counter = countMood(new Joy(new Date()));
         TextView text = (TextView)findViewById(R.id.joyCounter);
@@ -208,7 +230,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void updateTotalCountLove(){
+    private void updateTotalCountLove(){
         int counter = 0;
         counter = countMood(new Love(new Date()));
         TextView text = (TextView)findViewById(R.id.loveCounter);
@@ -216,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void updateTotalCountSurprise(){
+    private void updateTotalCountSurprise(){
         int counter = 0;
         counter = countMood(new Surprise(new Date()));
         TextView text = (TextView)findViewById(R.id.surpriseCounter);
@@ -224,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void updateTotalCountSadness(){
+    private void updateTotalCountSadness(){
         int counter = 0;
         counter = countMood(new Sadness(new Date()));
         TextView text = (TextView)findViewById(R.id.sadnessCounter);

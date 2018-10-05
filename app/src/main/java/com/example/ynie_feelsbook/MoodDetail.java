@@ -29,7 +29,14 @@ import java.util.Collections;
 import java.util.Date;
 
 public class MoodDetail extends AppCompatActivity {
-
+    /**
+     * first takes a position int and find the corresponding mood object in
+     * ArrayList, display the date and message with calender and textbox
+     * has a delete button at the bottom, when it is clicked, delete the mood object in the array
+     * and terminates the activity
+     * has a save button at the bottom, when it is click, create a new mood object with updated
+     * information, delete the old one and add the new one into the array,then terminate the activity
+     */
     private static final String FILENAME = "file.sav";
     private ArrayList<Mood> moods = new ArrayList<Mood>();
     private int position;
@@ -129,15 +136,12 @@ public class MoodDetail extends AppCompatActivity {
         moods.remove(position);
     }
     private void saveMood()throws tooLongMessageException{
-        try{
+
             Mood mood = moods.get(position);
             Mood newMood = new Fear(mood.getDate());
             newMood.setName(mood.getName());
             newMood.setMessage(commentBox.getText().toString());
             moods.add(newMood);
-        } catch (tooLongMessageException e){
-
-        }
 
 
     }

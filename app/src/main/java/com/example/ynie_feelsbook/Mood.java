@@ -50,7 +50,7 @@ public abstract class Mood implements Comparable<Mood>{
     }
 
     public String toString(){
-        return this.date.toString() + " | " + this.name;
+        return this.date.toString() + " | " + this.name + " | " + this.message;
     }
 
 
